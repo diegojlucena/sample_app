@@ -17,6 +17,10 @@ class PagesControllerTest < ActionController::TestCase
     get :home
     assert_select "title", "#{@base_title} | Home"
   end
+  
+  test "should have a home at '/'" do
+    assert_routing '/', :controller => 'pages', :action => 'home'
+  end
 
   #end tests for home
   
@@ -29,6 +33,10 @@ class PagesControllerTest < ActionController::TestCase
   test "contact should have the right title" do
     get :contact
     assert_select 'title', "#{@base_title} | Contact"
+  end
+  
+  test "should have contact at '/contact'" do
+    assert_routing '/contact', :controller => 'pages', :action => 'contact'
   end
 
   #end tests for contact
@@ -44,6 +52,11 @@ class PagesControllerTest < ActionController::TestCase
     get :about
     assert_select 'title', "#{@base_title} | About"
   end
+  
+  
+  test "should have about at '/about'" do
+    assert_routing '/about', :controller => 'pages', :action => 'about'
+  end
 
   #end tests form about
   
@@ -58,6 +71,10 @@ class PagesControllerTest < ActionController::TestCase
   test "help should have the right title" do
     get :help
     assert_select 'title', "#{@base_title} | Help"
+  end
+  
+  test "should have help at '/help'" do
+    assert_routing '/help', :controller => 'pages', :action => 'help'
   end
 
   #end tests form help
